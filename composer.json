@@ -1,7 +1,7 @@
 {
-    "name": "radium/framework",
-    "description": "The Radium framework.",
-    "keywords": ["framework", "radium"],
+    "name": "radium/language",
+    "description": "Radium Language component.",
+    "keywords": ["radium", "language", "component", "translations"],
     "license": "Apache-2.0",
     "minimum-stability": "dev",
     "authors": [
@@ -12,9 +12,6 @@
     ],
     "require": {
         "php": ">=5.4.0"
-    },
-    "suggest": {
-        "radium/schema-builder": "Easily manage database schema."
     },
     "autoload": {
         "psr-4": {
