@@ -1,7 +1,7 @@
 <?php
 /*!
- * Radium
- * Copyright 2011-2014 Jack Polgar
+ * Avalon
+ * Copyright 2011-2015 Jack Polgar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,16 @@
  * limitations under the License.
  */
 
-namespace Radium\Language;
+namespace Avalon\Language;
 
-use Radium\Helpers\Time;
+use Avalon\Helpers\Time;
 
 /**
  * Translation class.
  *
- * @since 0.1
- * @package Radium
- * @subpackage Language
- * @author Jack P.
- * @copyright (C) Jack P.
+ * @package Avalon\Language
+ * @author Jack Polgar <jack@polgar.id.au>
+ * @since 2.0.0
  */
 class Translation
 {

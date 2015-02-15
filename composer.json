@@ -1,9 +1,8 @@
 {
-    "name": "radium/language",
-    "description": "Radium Language component.",
-    "keywords": ["radium", "language", "component", "translations"],
+    "name": "avalon/language",
+    "description": "Avalon Language component.",
+    "keywords": ["avalon", "language", "component", "translations"],
     "license": "Apache-2.0",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Jack Polgar",
@@ -15,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Radium\\": "src/"
+            "Avalon\\": "src/"
         }
     },
     "extra": {

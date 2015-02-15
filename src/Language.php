@@ -1,7 +1,7 @@
 <?php
 /*!
- * Radium
- * Copyright 2011-2014 Jack Polgar
+ * Avalon
+ * Copyright 2011-2015 Jack Polgar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-namespace Radium;
+namespace Avalon;
 
 use InvalidArgumentException;
-use Radium\Language\Translation;
+use Avalon\Language\Translation;
 
 require __DIR__ . "/Translations/enAU.php";
 
 /**
  * Language class.
  *
- * @since 0.1
- * @package Radium\Language
+ * @package Avalon\Language
  * @author Jack Polgar <jack@polgar.id.au>
+ * @since 2.0.0
  */
 class Language
 {
