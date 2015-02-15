@@ -24,7 +24,7 @@ use Avalon\Language;
  * The English translations for Avalon.
  * @package Avalon\Language\Translations
  */
-$enAU = new Language(function($t){
+$enAU = new Language(function($t) {
     $t->name    = "English (Australian)";
     $t->locale  = "enAU";
     $t->strings = array(
