@@ -106,6 +106,8 @@ class Language
      *
      * @param string $format
      * @param mixed  $timestamp
+     *
+     * @return string
      */
     public static function date($format, $timestamp = null)
     {
