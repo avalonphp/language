@@ -115,6 +115,36 @@ class Language
     }
 
     /**
+     * Get registered languages.
+     *
+     * @return array
+     */
+    public static function getRegistered()
+    {
+        return static::$registered;
+    }
+
+    /**
+     * Returns an array for used with the `Form::select` helper.
+     *
+     * @return array
+     */
+    public static function selectOptions()
+    {
+        $languages = static::getRegistered();
+        $options = [];
+
+        foreach ($languages as $translation) {
+            $options[] = [
+                'label' => $translation->name,
+                'value' => $translation->locale
+            ];
+        }
+
+        return $options;
+    }
+
+    /**
      * Returns a link to itself.
      *
      * @return object
