@@ -39,7 +39,7 @@ class Language
     /**
      * Registers a new translation.
      *
-     * @param function $language
+     * @param callable $language
      */
     public function __construct($language)
     {
