@@ -33,7 +33,7 @@ require __DIR__ . "/Translations/enAU.php";
 class Language
 {
     protected static $link;
-    protected static $registered;
+    protected static $registered = [];
     protected static $current = 'enAU';
 
     /**
