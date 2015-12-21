@@ -96,8 +96,14 @@ class Language
      *
      * @return string
      */
-    public static function translate($string, $vars = array())
+    public static function translate($string, $vars = [])
     {
+        if (!is_array($vars)) {
+            $args   = func_get_args();
+            $string = array_shift($args);
+            $vars   = $args;
+        }
+
         return static::current()->translate($string, $vars);
     }
 
