@@ -1,7 +1,7 @@
 <?php
 /*!
  * Avalon
- * Copyright 2011-2015 Jack Polgar
+ * Copyright 2011-2015 Jack P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,13 +30,15 @@ $enAU = new Language(function ($t) {
     $t->strings = array(
         // ---------------------------------------------------------------------
         // Model validations
-        'errors.validations.already_in_use'    => "{field} is already in use",
-        'errors.validations.required'          => "{field} is required",
-        'errors.validations.must_be_email'     => "{field} is not a valid email",
-        'errors.validations.field_too_short'   => "{field} must be at least {minLength} characters long",
-        'errors.validations.field_too_long'    => "{field} must be under {maxLength} characters long",
-        'errors.validations.must_be_numeric'   => "{field} must be a number",
-        'errors.validations.fields_dont_match' => "{field}'s don't match",
+        'errors.validations.unique'        => "{field} is already in use",
+        'errors.validations.required'      => "{field} is required",
+        'errors.validations.email'         => "{field} is not a valid email address",
+        'errors.validations.minLength'     => "{field} must be at least {minLength} characters long",
+        'errors.validations.maxLength'     => "{field} must be under {maxLength} characters long",
+        'errors.validations.integer'       => "{field} must be a number",
+        'errors.validations.confirm'       => "{field} doesn't match confirmation",
+        'errors.validations.no_whitespace' => "{field} cannot contain spaces",
+        'errors.validations.alnum'         => "{field} must be alpha-numeric",
 
         // ---------------------------------------------------------------------
         // Time helper
