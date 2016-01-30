@@ -121,21 +121,9 @@ class Translation
     {
         $translation = $string;
 
-        // Loop through and replace the placeholders
-        // with the values from the $vars array.
-        $count = 0;
+        // Loop through and replace the placeholders with the values from the $vars array.
         foreach ($vars as $key => $val) {
-            $count++;
-
-            // If array key is an integer,
-            // use the counter to avoid clashes
-            // with numbered placeholders.
-            if (is_integer($key)) {
-                $key = $count;
-            }
-
-            // Replace placeholder with value
-            $translation = str_replace(array("{{$key}}", "{{$count}}"), $val, $translation);
+            $translation = str_replace("{{$key}}", $val, $translation);
         }
 
         // Match plural:n,{x, y}
