@@ -1,7 +1,7 @@
 <?php
 /*!
  * Avalon
- * Copyright 2011-2015 Jack P.
+ * Copyright 2011-2016 Jack P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,15 +42,15 @@ $enAU = new Language(function ($t) {
 
         // ---------------------------------------------------------------------
         // Time helper
-        'time.x_second' => "{plural:{1}, {{1} second|{1} seconds}}",
-        'time.x_minute' => "{plural:{1}, {{1} minute|{1} minutes}}",
-        'time.x_hour'   => "{plural:{1}, {{1} hour|{1} hours}}",
-        'time.x_day'    => "{plural:{1}, {{1} day|{1} days}}",
-        'time.x_week'   => "{plural:{1}, {{1} week|{1} weeks}}",
-        'time.x_month'  => "{plural:{1}, {{1} month|{1} months}}",
-        'time.x_year'   => "{plural:{1}, {{1} year|{1} years}}",
-        'time.x_and_x'  => "{1} and {2}",
-        'time.x_ago'    => "{1} ago",
+        'time.x_second' => "{plural:{0}, {{0} second|{0} seconds}}",
+        'time.x_minute' => "{plural:{0}, {{0} minute|{0} minutes}}",
+        'time.x_hour'   => "{plural:{0}, {{0} hour|{0} hours}}",
+        'time.x_day'    => "{plural:{0}, {{0} day|{0} days}}",
+        'time.x_week'   => "{plural:{0}, {{0} week|{0} weeks}}",
+        'time.x_month'  => "{plural:{0}, {{0} month|{0} months}}",
+        'time.x_year'   => "{plural:{0}, {{0} year|{0} years}}",
+        'time.x_and_x'  => "{0} and {1}",
+        'time.x_ago'    => "{0} ago",
 
         // ---------------------------------------------------------------------
         // Forms
