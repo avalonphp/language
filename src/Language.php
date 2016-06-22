@@ -21,7 +21,7 @@ namespace Avalon;
 use InvalidArgumentException;
 use Avalon\Language\Translation;
 
-require __DIR__ . "/Translations/enAU.php";
+require __DIR__ . "/Translations/en_AU.php";
 
 /**
  * Language class.
@@ -34,7 +34,7 @@ class Language
 {
     protected static $link;
     protected static $registered = [];
-    protected static $current = 'enAU';
+    protected static $current = 'en_AU';
 
     /**
      * Registers a new translation.

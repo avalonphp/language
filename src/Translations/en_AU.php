@@ -24,10 +24,10 @@ use Avalon\Language;
  * The English translations for Avalon.
  * @package Avalon\Language\Translations
  */
-$enAU = new Language(function ($t) {
-    $t->name    = "English (Australian)";
-    $t->locale  = "enAU";
-    $t->strings = array(
+$en_AU = new Language(function ($t) {
+    $t->name    = "English";
+    $t->locale  = "en_AU";
+    $t->strings = [
         // ---------------------------------------------------------------------
         // Model validations
         'errors.validations.unique'        => "{field} is already in use",
@@ -73,5 +73,5 @@ $enAU = new Language(function ($t) {
         // Pagination
         'next'     => "Next",
         'previous' => "Previous"
-    );
+    ];
 });
