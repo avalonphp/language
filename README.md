@@ -22,7 +22,8 @@ $myLanguage = new Language(function ($t) {
     $t->strings = [
         'my_string_index' => 'My String Value',
         'test_x' => 'Test {1}',
-        'hello_x' => 'Hello {username}'
+        'hello_x' => 'Hello {username}',
+        'x_tickets' => "{plural:{0}, {{0} ticket|{0} tickets}}",
     ];
 });
 
@@ -33,4 +34,6 @@ Language::setCurrent('en_AU');
 Language::translate('my_string_index'); // => 'My String Value'
 Language::translate('test_x', ['Hello']); // => 'Test Hello'
 Language::translate('hello_x', ['username' => 'Admin']); // => 'Hello Admin'
+Language::translate('x_tickets', [1]); // => '1 ticket'
+Language::translate('x_tickets', [2]); // => 2 tickets'
 ````
