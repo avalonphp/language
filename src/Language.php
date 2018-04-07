@@ -21,50 +21,28 @@ namespace Avalon;
 use InvalidArgumentException;
 use Avalon\Language\Translation;
 
-require __DIR__ . "/Translations/en_AU.php";
-
 /**
  * Language class.
  *
  * @package Avalon\Language
- * @author Jack P.
- * @since 2.0.0
+ * @author  Jack P.
+ * @since   2.0.0
  */
 class Language
 {
-    protected static $link;
+    /**
+     * Registered languages.
+     *
+     * @var Translation[]
+     */
     protected static $registered = [];
-    protected static $current = 'en_AU';
 
     /**
-     * Registers a new translation.
+     * Currently selected language to use, i.e. default.
      *
-     * @param callable $language
+     * @var string
      */
-    public function __construct($language)
-    {
-        static::$link = $this;
-
-        if (!is_callable($language)) {
-            throw new InvalidArgumentException('Expected \'$language\' to be callable');
-        }
-
-        // Create translation
-        $translation = new Translation();
-        $language($translation);
-
-        // Register translation
-        if (!isset(static::$registered[$translation->locale])) {
-            static::$registered[$translation->locale] = $translation;
-        }
-        // Merge strings
-        else {
-            static::$registered[$translation->locale]->strings = array_merge(
-                static::$registered[$translation->locale]->strings,
-                $translation->strings
-            );
-        }
-    }
+    protected static $current = 'en_AU';
 
     /**
      * Sets the specified language as the currently active one.
@@ -117,17 +95,54 @@ class Language
      */
     public static function date($format, $timestamp = null)
     {
-        return call_user_func_array(array(static::current(), 'date'), func_get_args());
+        return call_user_func(
+            [
+                static::current(),
+                'date',
+            ],
+            func_get_args()
+        );
     }
 
     /**
      * Get registered languages.
      *
-     * @return array
+     * @return Translation[]
      */
     public static function getRegistered()
     {
         return static::$registered;
+    }
+
+    /**
+     * Get a registered translation by locale
+     *
+     * @param $locale
+     *
+     * @return Translation|bool
+     */
+    public static function getTranslation($locale)
+    {
+        return isset(static::$registered[$locale]) ? static::$registered[$locale] : false;
+    }
+
+    /**
+     * @param Translation $translation
+     *
+     * @return bool|null
+     */
+    public static function registerTranslation(Translation $translation)
+    {
+        // If the locale is already registered, just add the strings from the new translation
+        // to the already existing one.
+        if ($registered = static::getTranslation($translation->getLocale())) {
+            $registered->addStrings($translation->getStrings());
+
+            return true;
+        }
+
+        // Register new translation.
+        static::$registered[$translation->getLocale()] = $translation;
     }
 
     /**
@@ -138,25 +153,15 @@ class Language
     public static function selectOptions()
     {
         $languages = static::getRegistered();
-        $options = [];
+        $options   = [];
 
         foreach ($languages as $translation) {
             $options[] = [
-                'label' => $translation->name,
-                'value' => $translation->locale
+                'label' => $translation->getName(),
+                'value' => $translation->getLocale(),
             ];
         }
 
         return $options;
-    }
-
-    /**
-     * Returns a link to itself.
-     *
-     * @return object
-     */
-    public static function link()
-    {
-        return static::$link;
     }
 }

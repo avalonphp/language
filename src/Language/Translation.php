@@ -24,25 +24,71 @@ use Avalon\Helpers\Time;
  * Translation class.
  *
  * @package Avalon\Language
- * @author Jack P.
- * @since 2.0.0
+ * @author  Jack P.
+ * @since   2.0.0
  */
-class Translation
+abstract class Translation
 {
-    public $name;
-    public $locale;
-    public $strings = array();
-    public $translator;
-    public $enumerator;
+    /**
+     * @var string
+     */
+    protected $name;
 
     /**
-     * Returns the locale information.
-     *
+     * @var string
+     */
+    protected $locale;
+
+    /**
+     * @var array
+     */
+    protected $strings = [];
+
+    public function getInfo()
+    {
+        return [
+            'name'   => $this->getName(),
+            'locale' => $this->getLocale(),
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
      * @return array
      */
-    public static function info()
+    public function getStrings()
     {
-        return static::$info;
+        return $this->strings;
+    }
+
+    /**
+     * @param array $strings
+     *
+     * @return Translation
+     */
+    public function addStrings(array $strings)
+    {
+        $this->strings = array_replace_recursive(
+            $this->strings,
+            $strings
+        );
+
+        return $this;
     }
 
     /**
@@ -52,11 +98,6 @@ class Translation
      */
     public function translate($string, Array $vars = array())
     {
-        // Use custom translator
-        if ($this->translator) {
-            return $this->translator($this->getString($string), $vars);
-        }
-
         return $this->compileString($this->getString($string), $vars);
     }
 
@@ -97,11 +138,6 @@ class Translation
      */
     public function calculateNumeral($numeral)
     {
-        // Use custom enumerator
-        if ($this->enumerator) {
-            return $this->enumerator($numeral);
-        }
-
         return ($numeral > 1 or $numeral < -1 or $numeral == 0) ? 1 : 0;
     }
 
@@ -117,7 +153,7 @@ class Translation
      *
      * @return string
      */
-    protected function compileString($string, $vars)
+    protected final function compileString($string, $vars)
     {
         $translation = $string;
 
@@ -141,8 +177,7 @@ class Translation
                 $replacement_id = $this->calculateNumeral($value);
                 if ($replacement_id !== false) {
                     $translation = str_replace($match, $replacements[$replacement_id], $translation);
-                }
-                // Get the last value then
+                } // Get the last value then
                 else {
                     $translation = str_replace($match, end($replacements), $translation);
                 }

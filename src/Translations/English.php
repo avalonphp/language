@@ -16,18 +16,31 @@
  * limitations under the License.
  */
 
-namespace Avalon\Translatons;
+namespace Avalon\Translations;
 
-use Avalon\Language;
+use Avalon\Language\Translation;
 
 /**
- * The English translations for Avalon.
- * @package Avalon\Language\Translations
+ * Avalon English translation.
+ *
+ * @package Avalon\Translatons
  */
-$en_AU = new Language(function ($t) {
-    $t->name    = "English";
-    $t->locale  = "en_AU";
-    $t->strings = [
+class English extends Translation
+{
+    /**
+     * @var string
+     */
+    protected $name = 'English (enAU)';
+
+    /**
+     * @var string
+     */
+    protected $locale = 'en_AU';
+
+    /**
+     * @var array
+     */
+    protected $strings = [
         // ---------------------------------------------------------------------
         // Model validations
         'errors.validations.unique'        => "{field} is already in use",
@@ -74,4 +87,4 @@ $en_AU = new Language(function ($t) {
         'next'     => "Next",
         'previous' => "Previous"
     ];
-});
+}
